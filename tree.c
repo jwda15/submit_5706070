@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
+#include <windows.h>
+#include <ctype.h> 
 
 #define MAXLEN 1024
 
@@ -79,6 +81,9 @@ int main(void)
         return 1;
     }
 
+    for (i = 0; s[i]; i++)
+        s[i] = (char)toupper((unsigned char)s[i]);
+
     if (!validate(s)) {
         printf("오류: 올바른 트리의 괄호 표기법이 아닙니다.\n");
         return 1;
@@ -137,14 +142,34 @@ int main(void)
             printf("%c%s", childC[i], (i == nchildC - 1) ? "\n" : ", ");
     }
 
-    /* ---------------- 4) 계층 구조 출력 ---------------- */
+    /* ---------------- 4) 계층 구조 출력 (기본) ---------------- */
     printf("\n[트리 구조]\n");
     depth = 0;
     for (i = 0; s[i]; i++) {
         char c = s[i];
         if (c >= 'A' && c <= 'Z') {
             int k;
-            more[depth] = has_next_sibling(s, i);
+            if (depth == 0) {
+                printf("%c\n", c);
+            }
+            else {
+                for (k = 1; k < depth; k++)
+                    printf("    ");          /* 공백 4칸만 */
+                printf("+---%c\n", c);
+            }
+        }
+        else if (c == '(') depth++;
+        else if (c == ')')   depth--;
+    }
+
+    /* ---------------- 5) 계층 구조 출력 (연결선 포함) ---------------- */
+    printf("\n[트리 구조 - 연결선]\n");
+    depth = 0;
+    for (i = 0; s[i]; i++) {
+        char c = s[i];
+        if (c >= 'A' && c <= 'Z') {
+            int k;
+            more[depth] = has_next_sibling(s, i);   /* 내 레벨 형제 유무 기록 */
             if (depth == 0) {
                 printf("%c\n", c);
             }
@@ -157,5 +182,6 @@ int main(void)
         else if (c == '(') depth++;
         else if (c == ')')   depth--;
     }
+
     return 0;
 }
