@@ -1,0 +1,291 @@
+﻿/*
+ * traverse.c  -  과제 04 : 이진트리 순회 프로그램 (반복적 방법)
+ *
+ *   괄호 표기법으로 이진트리를 입력받아 포인터 연결 자료구조로 만들고,
+ *   재귀 없이 스택만으로 전위 / 중위 / 후위 순회를 수행한다.
+ *해
+ *   괄호 표기법 (이진트리, 이전 과제와 동일)
+ *     A(B,C)  : 왼쪽 B, 오른쪽 C
+ *     A(B)    : 왼쪽 자식만   (A(B,) 도 허용)
+ *     A(,C)   : 오른쪽 자식만
+ *     단말 노드는 괄호 없이 이름만.  A() , A(,) 는 오류.
+ */
+#define _CRT_SECURE_NO_WARNINGS   /* MSVC: strcpy/sprintf 경고(/sdl 에서는 에러) 비활성화 */
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
+#define MAXLEN   1024
+#define MAXSTACK 1024
+
+/* ---------------- 노드 ---------------- */
+typedef struct Node {
+    char         data;
+    struct Node *left;
+    struct Node *right;
+} Node;
+
+static Node *newNode(char c)
+{
+    Node *n = (Node *)malloc(sizeof(Node));
+    n->data = c;
+    n->left = n->right = NULL;
+    return n;
+}
+
+/* ---------------- 노드 포인터 스택 ---------------- */
+typedef struct {
+    Node *item[MAXSTACK];
+    int   top;
+} Stack;
+
+static void  sInit (Stack *s)          { s->top = -1; }
+static int   sEmpty(Stack *s)          { return s->top < 0; }
+static void  sPush (Stack *s, Node *n) { s->item[++s->top] = n; }
+static Node *sPop  (Stack *s)          { return s->item[s->top--]; }
+static Node *sPeek (Stack *s)          { return s->item[s->top]; }
+
+/* ================================================================
+ * 1) 괄호 표기법 파싱  (반복적, 스택 사용)
+ *    파싱 스택 원소 : 부모 노드, 현재 채우는 자리(0=왼쪽,1=오른쪽), 자리 채움 여부
+ * ================================================================ */
+typedef struct {
+    Node *parent;
+    int   slot;     /* 0 : 왼쪽 자리, 1 : 오른쪽 자리 */
+    int   filled;   /* 현재 자리에 노드가 들어갔는가 */
+} PFrame;
+
+static Node *parseTree(const char *s, char *err)
+{
+    PFrame st[MAXSTACK];
+    int    top  = -1;
+    Node  *root = NULL, *last = NULL;
+    int    used[26] = {0};
+    int    i;
+
+    err[0] = '\0';
+    if (s[0] == '\0') { strcpy(err, "입력이 비어 있습니다."); return NULL; }
+
+    for (i = 0; s[i]; i++) {
+        char c = s[i];
+
+        if (c >= 'A' && c <= 'Z') {
+            Node *n;
+            if (used[c - 'A']) { sprintf(err, "노드 %c 가 중복되었습니다.", c); return NULL; }
+            used[c - 'A'] = 1;
+            n = newNode(c);
+
+            if (top < 0) {
+                if (root) { sprintf(err, "루트가 두 개입니다. (%c)", c); return NULL; }
+                root = n;
+            } else {
+                if (st[top].filled) { sprintf(err, "노드 %c 앞에 쉼표가 없습니다.", c); return NULL; }
+                if (st[top].slot == 0) st[top].parent->left  = n;
+                else                   st[top].parent->right = n;
+                st[top].filled = 1;
+            }
+            last = n;
+        }
+        else if (c == '(') {
+            if (!last || !(i > 0 && s[i-1] >= 'A' && s[i-1] <= 'Z')) {
+                sprintf(err, "%d번째 '(' 앞에 노드가 없습니다.", i + 1); return NULL;
+            }
+            if (top + 1 >= MAXSTACK) { strcpy(err, "괄호가 너무 깊습니다."); return NULL; }
+            top++;
+            st[top].parent = last;
+            st[top].slot   = 0;
+            st[top].filled = 0;
+        }
+        else if (c == ',') {
+            if (top < 0)          { sprintf(err, "%d번째 ',' 가 괄호 밖에 있습니다.", i + 1); return NULL; }
+            if (st[top].slot == 1){ sprintf(err, "노드 %c 의 자식이 3개 이상입니다. (이진트리 아님)", st[top].parent->data); return NULL; }
+            st[top].slot   = 1;
+            st[top].filled = 0;
+        }
+        else if (c == ')') {
+            Node *p;
+            if (top < 0) { sprintf(err, "%d번째 ')' 가 짝이 맞지 않습니다.", i + 1); return NULL; }
+            p = st[top].parent;
+            if (!p->left && !p->right) {
+                sprintf(err, "노드 %c 의 괄호 안이 비어 있습니다.", p->data); return NULL;
+            }
+            top--;
+        }
+        else if (c == ' ' || c == '\t') {
+            continue;   /* 공백은 무시 */
+        }
+        else {
+            sprintf(err, "허용되지 않는 문자 '%c' (%d번째)", c, i + 1); return NULL;
+        }
+    }
+
+    if (top >= 0) { strcpy(err, "닫는 괄호 ')' 가 부족합니다."); return NULL; }
+    if (!root)    { strcpy(err, "노드가 없습니다."); return NULL; }
+    return root;
+}
+
+/* ================================================================
+ * 2) 트리 구조 출력 (왼쪽으로 눕힌 형태, 반복적)
+ *    자식이 하나라도 있으면 왼쪽/오른쪽 자리를 모두 출력하고
+ *    비어 있는 쪽은 (null) 로 표시해 좌우를 구분한다.
+ * ================================================================ */
+typedef struct {
+    Node *node;         /* NULL 이면 (null) 자리 */
+    char  prefix[256];
+    int   isLast;
+    int   isRoot;
+} DFrame;
+
+static void printTree(Node *root)
+{
+    DFrame st[MAXSTACK];
+    int top = -1;
+
+    st[++top].node = root; st[top].prefix[0] = '\0'; st[top].isLast = 1; st[top].isRoot = 1;
+
+    while (top >= 0) {
+        DFrame f = st[top--];
+        char childPrefix[256];
+
+        if (f.isRoot) printf("%c\n", f.node->data);
+        else if (f.node) printf("%s+---%c\n", f.prefix, f.node->data);
+        else             printf("%s+---(null)\n", f.prefix);
+
+        if (!f.node || (!f.node->left && !f.node->right)) continue;
+
+        /* 자식이 이어질 때의 접두어 */
+        if (f.isRoot) childPrefix[0] = '\0';
+        else          { strcpy(childPrefix, f.prefix); strcat(childPrefix, f.isLast ? "    " : "|   "); }
+
+        /* 스택이므로 오른쪽 먼저 push, 왼쪽을 나중에 push */
+        st[++top].node = f.node->right; strcpy(st[top].prefix, childPrefix); st[top].isLast = 1; st[top].isRoot = 0;
+        st[++top].node = f.node->left;  strcpy(st[top].prefix, childPrefix); st[top].isLast = 0; st[top].isRoot = 0;
+    }
+}
+
+/* ================================================================
+ * 3) 반복적 순회 (재귀 없음)
+ * ================================================================ */
+
+/* 전위 : Root -> Left -> Right
+ *   pop 한 노드를 바로 방문하고, 오른쪽 -> 왼쪽 순서로 push 하면
+ *   왼쪽이 먼저 pop 된다. */
+void preorder(Node *tree)
+{
+    Stack s;
+    sInit(&s);
+    if (tree) sPush(&s, tree);
+
+    while (!sEmpty(&s)) {
+        Node *n = sPop(&s);
+        printf("%c ", n->data);
+        if (n->right) sPush(&s, n->right);
+        if (n->left)  sPush(&s, n->left);
+    }
+}
+
+/* 중위 : Left -> Root -> Right
+ *   왼쪽으로 끝까지 내려가며 push, 더 갈 수 없으면 pop 해서 방문하고
+ *   오른쪽 자식으로 이동한다. */
+void inorder(Node *tree)
+{
+    Stack s;
+    Node *cur = tree;
+    sInit(&s);
+
+    while (cur || !sEmpty(&s)) {
+        while (cur) {            /* 왼쪽 끝까지 */
+            sPush(&s, cur);
+            cur = cur->left;
+        }
+        cur = sPop(&s);
+        printf("%c ", cur->data);
+        cur = cur->right;
+    }
+}
+
+/* 후위 : Left -> Right -> Root
+ *   스택 top 노드는 (1) 오른쪽 자식이 없거나 (2) 오른쪽 자식을 방금 방문했을 때만
+ *   방문할 수 있다. lastVisited 로 (2)를 판별한다. */
+void postorder(Node *tree)
+{
+    Stack s;
+    Node *cur = tree, *lastVisited = NULL;
+    sInit(&s);
+
+    while (cur || !sEmpty(&s)) {
+        if (cur) {               /* 왼쪽으로 내려간다 */
+            sPush(&s, cur);
+            cur = cur->left;
+        } else {
+            Node *peek = sPeek(&s);
+            if (peek->right && lastVisited != peek->right) {
+                cur = peek->right;   /* 오른쪽 서브트리가 아직 남았다 */
+            } else {
+                printf("%c ", peek->data);
+                lastVisited = sPop(&s);
+            }
+        }
+    }
+}
+
+/* ---------------- 메모리 해제 (반복적) ---------------- */
+static void freeTree(Node *root)
+{
+    Stack s;
+    sInit(&s);
+    if (root) sPush(&s, root);
+    while (!sEmpty(&s)) {
+        Node *n = sPop(&s);
+        if (n->left)  sPush(&s, n->left);
+        if (n->right) sPush(&s, n->right);
+        free(n);
+    }
+}
+
+/* ================================================================
+ * main
+ * ================================================================ */
+int main(void)
+{
+    char  buf[MAXLEN];
+    char  err[128];
+    Node *root;
+
+#ifdef _WIN32
+    /* 콘솔 코드페이지를 실제 문자열 인코딩에 맞춘다.
+       "가" 가 UTF-8 이면 3바이트(+NUL=4), CP949 면 2바이트(+NUL=3).
+       컴파일 옵션(/utf-8 유무)이나 PC 설정과 상관없이 한글이 안 깨진다. */
+    {
+        UINT cp = (sizeof("가") == 4) ? CP_UTF8 : GetACP();
+        SetConsoleOutputCP(cp);
+        SetConsoleCP(cp);
+    }
+#endif
+
+    printf("이진트리를 괄호 표기법으로 입력하세요: ");
+    if (!fgets(buf, sizeof(buf), stdin)) return 1;
+    buf[strcspn(buf, "\r\n")] = '\0';
+
+    root = parseTree(buf, err);
+    if (!root) {
+        printf("오류: %s\n", err);
+        return 1;
+    }
+
+    printf("\n[입력한 트리] %s\n\n", buf);
+    printf("[트리 구조]\n");
+    printTree(root);
+
+    printf("\n[순회 결과]\n");
+    printf("Preorder  : "); preorder(root);  printf("\n");
+    printf("Inorder   : "); inorder(root);   printf("\n");
+    printf("Postorder : "); postorder(root); printf("\n");
+
+    freeTree(root);
+    return 0;
+}
