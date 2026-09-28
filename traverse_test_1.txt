@@ -1,0 +1,25 @@
+이진트리를 괄호 표기법으로 입력하세요: A(B(D(H,I),E(J,)),C(F(,K),G(L,M)))
+
+[입력한 트리] A(B(D(H,I),E(J,)),C(F(,K),G(L,M)))
+
+[트리 구조]
+A
++---B
+|   +---D
+|   |   +---H
+|   |   +---I
+|   +---E
+|       +---J
+|       +---(null)
++---C
+    +---F
+    |   +---(null)
+    |   +---K
+    +---G
+        +---L
+        +---M
+
+[순회 결과]
+Preorder  : A B D H I E J C F K G L M 
+Inorder   : H D I B J E A F K C L G M 
+Postorder : H I D J E B K F L M G C A 
