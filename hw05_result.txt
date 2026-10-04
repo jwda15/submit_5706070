@@ -1,0 +1,92 @@
+﻿===== Generated 100 Integers (in generation order) =====
+  217  708  631  679  209  719  347  351  348  688
+  953   73  296  922  991  566  542  546  934  144
+   27  823  946  231  639  624  478  503  913  738
+  786  303  220    7   60  814  426  915  100  191
+  816  155  352  917  834  387   19  418  606  599
+  532  551  364  113  926  736   18  899   91  128
+  432  541  226  379  747  697   50  928  635  869
+  894  272  370   31  824  890  190  842  124  686
+  997  344  737  712  465  442  406  592  754   93
+  811  431  143  154  146  878  619  659   68  449
+
+===== BST Construction =====
+BST build comparisons : 650
+BST height            : 14
+
+===== 50 Search Keys =====
+  558  716  872  648  901  312  436  169  900   24
+  645  349  891  371   44  449  434  807  246  686
+  949  333  473  485  780  900  469  710  757  642
+  140  619  113  655  745  748  790  681  917  356
+   38  880  559  686  879  640  813  446  695  276
+
+===== Search Results =====
+  No     Key  Result     Sequential         BST
+----------------------------------------------
+   1     558  Not Found         100           9
+   2     716  Not Found         100           4
+   3     872  Not Found         100          13
+   4     648  Not Found         100           6
+   5     901  Not Found         100           9
+   6     312  Not Found         100           7
+   7     436  Not Found         100          12
+   8     169  Not Found         100           7
+   9     900  Not Found         100           9
+  10      24  Not Found         100           6
+  11     645  Not Found         100           6
+  12     349  Not Found         100           6
+  13     891  Not Found         100          12
+  14     371  Not Found         100          14
+  15      44  Not Found         100           7
+  16     449  Found             100          13
+  17     434  Not Found         100          12
+  18     807  Not Found         100          10
+  19     246  Not Found         100           7
+  20     686  Found              80           6
+  21     949  Not Found         100           7
+  22     333  Not Found         100           7
+  23     473  Not Found         100          11
+  24     485  Not Found         100           9
+  25     780  Not Found         100          10
+  26     900  Not Found         100           9
+  27     469  Not Found         100          11
+  28     710  Not Found         100           4
+  29     757  Not Found         100          10
+  30     642  Not Found         100           6
+  31     140  Not Found         100           8
+  32     619  Found              97           9
+  33     113  Found              54           6
+  34     655  Not Found         100           6
+  35     745  Not Found         100           9
+  36     748  Not Found         100          10
+  37     790  Not Found         100          10
+  38     681  Not Found         100           6
+  39     917  Found              44           9
+  40     356  Not Found         100          12
+  41      38  Not Found         100           7
+  42     880  Not Found         100          13
+  43     559  Not Found         100           9
+  44     686  Found              80           6
+  45     879  Not Found         100          13
+  46     640  Not Found         100           6
+  47     813  Not Found         100          10
+  48     446  Not Found         100          13
+  49     695  Not Found         100           6
+  50     276  Not Found         100           7
+
+===== Statistics =====
+Number of searches : 50 (Found 6 / Not Found 44)
+
+Sequential Search
+Total comparisons   : 4855
+Average comparisons : 97.10
+
+BST Search
+Total comparisons   : 434
+Average comparisons : 8.68
+
+Including BST Build Cost
+BST build comparisons        : 650
+BST build + search (total)   : 1084
+Sequential search (total)    : 4855
