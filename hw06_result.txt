@@ -1,0 +1,828 @@
+===== Generated 100 Integers (in generation order) =====
+  977  243  876  304   19  201  830  323  530  906
+   11  536  497  297  687  312  351  247  183  718
+  902  759  392  830  519  810  460  262  227  732
+  642  894  666  208  888  375   99  717  699  629
+  622  710  164  809  698  851  120  739  789  303
+  147  690  753  229  519  271   39  669  223  957
+   91  556  540  447  764  427  822  863  143  210
+  182  455  611  346  263  308  888  383   46  676
+  377  193   55  129  423  264  400  152  623  313
+  799  714  869   28  160  632  455  983  495  288
+
+===== Stored Values in Array (first-occurrence order) =====
+  977  243  876  304   19  201  830  323  530  906
+   11  536  497  297  687  312  351  247  183  718
+  902  759  392  519  810  460  262  227  732  642
+  894  666  208  888  375   99  717  699  629  622
+  710  164  809  698  851  120  739  789  303  147
+  690  753  229  271   39  669  223  957   91  556
+  540  447  764  427  822  863  143  210  182  455
+  611  346  263  308  383   46  676  377  193   55
+  129  423  264  400  152  623  313  799  714  869
+   28  160  632  983  495  288
+
+Generated values  : 100
+Stored values     : 96
+Duplicates skipped: 4
+
+Construction
+Array comparisons : 4,695
+BST comparisons   :   818
+AVL comparisons   :   538
+AVL rotations     :    47 (LL 8, RR 11, LR 14, RL 14)
+
+Structure
+Array length : 96
+BST height   : 15
+AVL height   : 8
+
+===== 50 Search Keys =====
+  192  367  743  493  713    5  801  290   78  538
+  656  145  421  711  274  844  665  364  686  288
+  678  174  692  546  202  543  869  347  215   53
+  635  407  420  377  591  823   72  391  113  842
+  929  769  987  350  170  952  884  525    5  260
+
+===== Search Details =====
+
+Search Key : 192
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 6
+
+AVL Search
+Result      : Not Found
+Comparisons : 8
+
+Search Key : 367
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 11
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 743
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 493
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 12
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 713
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 5
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 4
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 801
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 15
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 290
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 9
+
+AVL Search
+Result      : Not Found
+Comparisons : 8
+
+Search Key : 78
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 10
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 538
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 656
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 11
+
+AVL Search
+Result      : Not Found
+Comparisons : 5
+
+Search Key : 145
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 10
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 421
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 15
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 711
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 274
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 9
+
+AVL Search
+Result      : Not Found
+Comparisons : 8
+
+Search Key : 844
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 6
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 665
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 11
+
+AVL Search
+Result      : Not Found
+Comparisons : 5
+
+Search Key : 364
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 11
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 686
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 13
+
+AVL Search
+Result      : Not Found
+Comparisons : 5
+
+Search Key : 288
+
+Sequential Search
+Result      : Found
+Comparisons : 96
+
+BST Search
+Result      : Found
+Comparisons : 9
+
+AVL Search
+Result      : Found
+Comparisons : 8
+
+Search Key : 678
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 13
+
+AVL Search
+Result      : Not Found
+Comparisons : 5
+
+Search Key : 174
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 8
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 692
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 546
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 202
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 6
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 543
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 869
+
+Sequential Search
+Result      : Found
+Comparisons : 90
+
+BST Search
+Result      : Found
+Comparisons : 8
+
+AVL Search
+Result      : Found
+Comparisons : 7
+
+Search Key : 347
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 10
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 215
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 8
+
+AVL Search
+Result      : Not Found
+Comparisons : 8
+
+Search Key : 53
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 10
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 635
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 12
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 407
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 15
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 420
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 15
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 377
+
+Sequential Search
+Result      : Found
+Comparisons : 78
+
+BST Search
+Result      : Found
+Comparisons : 13
+
+AVL Search
+Result      : Found
+Comparisons : 6
+
+Search Key : 591
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 14
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 823
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 13
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 72
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 10
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 391
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 12
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 113
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 8
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 842
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 6
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 929
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 5
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 769
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 15
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 987
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 2
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 350
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 10
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 170
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 8
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 952
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 5
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 884
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 7
+
+AVL Search
+Result      : Not Found
+Comparisons : 6
+
+Search Key : 525
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 9
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 5
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 4
+
+AVL Search
+Result      : Not Found
+Comparisons : 7
+
+Search Key : 260
+
+Sequential Search
+Result      : Not Found
+Comparisons : 96
+
+BST Search
+Result      : Not Found
+Comparisons : 7
+
+AVL Search
+Result      : Not Found
+Comparisons : 8
+
+===== Search Summary Table =====
+  No     Key  Result     Sequential    BST    AVL
+-----------------------------------------------------
+   1     192  Not Found          96      6      8
+   2     367  Not Found          96     11      7
+   3     743  Not Found          96     14      6
+   4     493  Not Found          96     12      7
+   5     713  Not Found          96     14      6
+   6       5  Not Found          96      4      7
+   7     801  Not Found          96     15      7
+   8     290  Not Found          96      9      8
+   9      78  Not Found          96     10      7
+  10     538  Not Found          96     14      7
+  11     656  Not Found          96     11      5
+  12     145  Not Found          96     10      7
+  13     421  Not Found          96     15      7
+  14     711  Not Found          96     14      6
+  15     274  Not Found          96      9      8
+  16     844  Not Found          96      6      7
+  17     665  Not Found          96     11      5
+  18     364  Not Found          96     11      7
+  19     686  Not Found          96     13      5
+  20     288  Found              96      9      8
+  21     678  Not Found          96     13      5
+  22     174  Not Found          96      8      7
+  23     692  Not Found          96     14      6
+  24     546  Not Found          96     14      6
+  25     202  Not Found          96      6      7
+  26     543  Not Found          96     14      6
+  27     869  Found              90      8      7
+  28     347  Not Found          96     10      6
+  29     215  Not Found          96      8      8
+  30      53  Not Found          96     10      7
+  31     635  Not Found          96     12      7
+  32     407  Not Found          96     15      7
+  33     420  Not Found          96     15      7
+  34     377  Found              78     13      6
+  35     591  Not Found          96     14      6
+  36     823  Not Found          96     13      7
+  37      72  Not Found          96     10      7
+  38     391  Not Found          96     12      7
+  39     113  Not Found          96      8      6
+  40     842  Not Found          96      6      7
+  41     929  Not Found          96      5      7
+  42     769  Not Found          96     15      7
+  43     987  Not Found          96      2      7
+  44     350  Not Found          96     10      6
+  45     170  Not Found          96      8      7
+  46     952  Not Found          96      5      7
+  47     884  Not Found          96      7      6
+  48     525  Not Found          96      9      7
+  49       5  Not Found          96      4      7
+  50     260  Not Found          96      7      8
+
+===== Summary =====
+Stored values : 96
+
+Construction
+Array comparisons : 4,695
+BST comparisons   :   818
+AVL comparisons   :   538
+
+Structure
+Array length : 96
+BST height   : 15
+AVL height   : 8
+
+Searches : 50 (Found 3 / Not Found 47)
+
+Sequential Search
+Total comparisons   : 4,776
+Average comparisons : 95.52
+
+BST Search
+Total comparisons   : 513
+Average comparisons : 10.26
+
+AVL Search
+Total comparisons   : 336
+Average comparisons : 6.72
