@@ -1,0 +1,79 @@
+﻿sizeof(int) = 4, sizeof(Node *) = 8, sizeof(Node) = 16
+sizeof(MatrixGraph) = 40008, sizeof(ListGraph) = 816
+
+============================================================
+Sparse Graph
+Vertices : 100
+Edges    : 100
+============================================================
+
+Selected operations (same for matrix and list)
+Insert edge        : (23, 5)
+Delete edge        : (29, 7)
+Connectivity check : (3, 42) -> Not connected
+Adjacent vertices  : vertex 69
+
+[Matrix] Adjacent vertices of 69 : 20 45
+         (2 vertices)
+[List]   Adjacent vertices of 69 : 45 20
+         (2 vertices)
+
+Case 1 : Sparse Graph - Adjacency Matrix
+Memory                         : 40,008 Bytes
+Edge insertion comparisons     : 1
+Edge deletion comparisons      : 1
+Connectivity check comparisons : 1
+Adjacent vertices comparisons  : 100
+
+Case 2 : Sparse Graph - Adjacency List
+Memory                         : 4,016 Bytes
+Edge insertion comparisons     : 1
+Edge deletion comparisons      : 3
+Connectivity check comparisons : 0
+Adjacent vertices comparisons  : 2
+
+Average over 1000 random operations (Sparse Graph)
+                                 Matrix      List
+Edge insertion comparisons     :   1.00      1.92
+Edge deletion comparisons      :   1.00      3.90
+Connectivity check comparisons :   1.00      1.94
+Adjacent vertices comparisons  : 100.00      1.96
+
+============================================================
+Dense Graph
+Vertices : 100
+Edges    : 4000
+============================================================
+
+Selected operations (same for matrix and list)
+Insert edge        : (68, 40)
+Delete edge        : (77, 70)
+Connectivity check : (94, 76) -> Connected
+Adjacent vertices  : vertex 74
+
+[Matrix] Adjacent vertices of 74 : 0 1 4 5 6 7 8 9 11 12 13 14 15 16 17 18 22 23 24 25 26 27 28 29 31 33 34 35 36 37 39 40 41 42 43 44 47 48 50 51 53 54 55 56 58 62 63 65 66 67 68 69 70 71 72 73 76 77 79 80 84 85 86 87 88 89 90 91 92 94 95 96 97 98
+         (74 vertices)
+[List]   Adjacent vertices of 74 : 76 72 18 33 6 17 36 31 23 90 55 35 39 14 65 9 16 24 56 8 48 80 97 77 68 25 54 51 22 92 84 89 15 73 95 69 13 42 85 4 62 58 34 11 37 40 70 5 63 28 44 41 67 88 66 53 26 91 27 87 71 94 96 79 12 43 1 0 50 7 47 86 98 29
+         (74 vertices)
+
+Case 3 : Dense Graph - Adjacency Matrix
+Memory                         : 40,008 Bytes
+Edge insertion comparisons     : 1
+Edge deletion comparisons      : 1
+Connectivity check comparisons : 1
+Adjacent vertices comparisons  : 100
+
+Case 4 : Dense Graph - Adjacency List
+Memory                         : 128,816 Bytes
+Edge insertion comparisons     : 79
+Edge deletion comparisons      : 134
+Connectivity check comparisons : 12
+Adjacent vertices comparisons  : 74
+
+Average over 1000 random operations (Dense Graph)
+                                 Matrix      List
+Edge insertion comparisons     :   1.00     79.37
+Edge deletion comparisons      :   1.00     82.70
+Connectivity check comparisons :   1.00     48.98
+Adjacent vertices comparisons  : 100.00     80.02
+
