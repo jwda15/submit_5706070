@@ -1,0 +1,89 @@
+﻿Data Size : 1000
+
+Insertion Sort       : 242067 comparisons
+Shell Sort (Original): 15089 comparisons
+Shell Sort (Knuth)   : 13856 comparisons
+
+Data Size : 2000
+
+Insertion Sort       : 994800 comparisons
+Shell Sort (Original): 37355 comparisons
+Shell Sort (Knuth)   : 33491 comparisons
+
+Data Size : 4000
+
+Insertion Sort       : 4018859 comparisons
+Shell Sort (Original): 86494 comparisons
+Shell Sort (Knuth)   : 76486 comparisons
+
+Data Size : 8000
+
+Insertion Sort       : 15963909 comparisons
+Shell Sort (Original): 199487 comparisons
+Shell Sort (Knuth)   : 182445 comparisons
+
+Data Size : 16000
+
+Insertion Sort       : 63401084 comparisons
+Shell Sort (Original): 472664 comparisons
+Shell Sort (Knuth)   : 398926 comparisons
+
+Data Size : 20000
+
+Insertion Sort       : 100251882 comparisons
+Shell Sort (Original): 599058 comparisons
+Shell Sort (Knuth)   : 530393 comparisons
+
+Sort check : All results are sorted in ascending order
+
+Gap sequences
+n = 1000
+  Original  ( 9 passes): 500 250 125 62 31 15 7 3 1
+  Knuth     ( 6 passes): 364 121 40 13 4 1
+n = 2000
+  Original  (10 passes): 1000 500 250 125 62 31 15 7 3 1
+  Knuth     ( 7 passes): 1093 364 121 40 13 4 1
+n = 4000
+  Original  (11 passes): 2000 1000 500 250 125 62 31 15 7 3 1
+  Knuth     ( 8 passes): 3280 1093 364 121 40 13 4 1
+n = 8000
+  Original  (12 passes): 4000 2000 1000 500 250 125 62 31 15 7 3 1
+  Knuth     ( 8 passes): 3280 1093 364 121 40 13 4 1
+n = 16000
+  Original  (13 passes): 8000 4000 2000 1000 500 250 125 62 31 15 7 3 1
+  Knuth     ( 9 passes): 9841 3280 1093 364 121 40 13 4 1
+n = 20000
+  Original  (14 passes): 10000 5000 2500 1250 625 312 156 78 39 19 9 4 2 1
+  Knuth     ( 9 passes): 9841 3280 1093 364 121 40 13 4 1
+
+Shell Sort (Original), n = 20000
+  Gap     Comparisons   Share
+  10000        10000    1.7%
+   5000        19195    3.2%
+   2500        25552    4.3%
+   1250        31135    5.2%
+    625        37568    6.3%
+    312        64576   10.8%
+    156        36631    6.1%
+     78        43991    7.3%
+     39        56991    9.5%
+     19       102358   17.1%
+      9        61463   10.3%
+      4        49016    8.2%
+      2        29561    4.9%
+      1        31021    5.2%
+  Total       599058
+
+Shell Sort (Knuth), n = 20000
+  Gap     Comparisons   Share
+   9841        10373    2.0%
+   3280        28758    5.4%
+   1093        42847    8.1%
+    364        53739   10.1%
+    121        67693   12.8%
+     40        77967   14.7%
+     13       104046   19.6%
+      4        89836   16.9%
+      1        55134   10.4%
+  Total       530393
+
