@@ -1,0 +1,85 @@
+﻿Data Size : 1000
+
+Algorithm       Comparisons    Time(ms)    Memory(Bytes)
+--------------------------------------------------------
+Merge Sort      8719           0.0395      4960
+Quick (First)   11572          0.0326      1712
+Quick (Random)  12132          0.0423      1792
+Quick (Median3) 11673          0.0328      1312
+
+Data Size : 2000
+
+Algorithm       Comparisons    Time(ms)    Memory(Bytes)
+--------------------------------------------------------
+Merge Sort      19405          0.0898      9040
+Quick (First)   26906          0.0781      1952
+Quick (Random)  26969          0.0904      1872
+Quick (Median3) 25934          0.0809      1472
+
+Data Size : 4000
+
+Algorithm       Comparisons    Time(ms)    Memory(Bytes)
+--------------------------------------------------------
+Merge Sort      42843          0.1973      17120
+Quick (First)   57582          0.1698      2192
+Quick (Random)  60932          0.1915      2192
+Quick (Median3) 55579          0.1758      1632
+
+Data Size : 8000
+
+Algorithm       Comparisons    Time(ms)    Memory(Bytes)
+--------------------------------------------------------
+Merge Sort      93470          0.4409      33200
+Quick (First)   123962         0.3618      2352
+Quick (Random)  124462         0.4069      2192
+Quick (Median3) 121311         0.3673      1712
+
+Data Size : 16000
+
+Algorithm       Comparisons    Time(ms)    Memory(Bytes)
+--------------------------------------------------------
+Merge Sort      203256         0.9267      65280
+Quick (First)   274651         0.7450      2592
+Quick (Random)  276754         0.8380      2512
+Quick (Median3) 266150         0.7780      2032
+
+Data Size : 20000
+
+Algorithm       Comparisons    Time(ms)    Memory(Bytes)
+--------------------------------------------------------
+Merge Sort      260943         1.1926      81360
+Quick (First)   352136         0.9643      2592
+Quick (Random)  370558         1.0648      2752
+Quick (Median3) 347444         0.9790      2512
+
+Sort check : All results are sorted in ascending order
+
+Details (Memory = Heap + Stack)
+Time: average of 100 runs / Comparisons, Memory, Moves: first run
+
+Size    Algorithm        Heap(Bytes)  Stack(Bytes)  Max depth  Moves
+--------------------------------------------------------------------
+1000    Merge Sort       4000         960           10         19952
+1000    Quick (First)    0            1712          20         6126
+1000    Quick (Random)   0            1792          21         6154
+1000    Quick (Median3)  0            1312          15         5990
+2000    Merge Sort       8000         1040          11         43904
+2000    Quick (First)    0            1952          23         13208
+2000    Quick (Random)   0            1872          22         13288
+2000    Quick (Median3)  0            1472          17         13010
+4000    Merge Sort       16000        1120          12         95808
+4000    Quick (First)    0            2192          26         28136
+4000    Quick (Random)   0            2192          26         28076
+4000    Quick (Median3)  0            1632          19         27644
+8000    Merge Sort       32000        1200          13         207616
+8000    Quick (First)    0            2352          28         60482
+8000    Quick (Random)   0            2192          26         60416
+8000    Quick (Median3)  0            1712          20         59316
+16000   Merge Sort       64000        1280          14         447232
+16000   Quick (First)    0            2592          31         127342
+16000   Quick (Random)   0            2512          30         127736
+16000   Quick (Median3)  0            2032          24         125930
+20000   Merge Sort       80000        1360          15         574464
+20000   Quick (First)    0            2592          31         162642
+20000   Quick (Random)   0            2752          33         160866
+20000   Quick (Median3)  0            2512          30         159820
